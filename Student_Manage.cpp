@@ -3,7 +3,7 @@
 #include <map>
 #define ll long long int
 using namespace std;
-char *s_gets(char *st, int n, FILE *fp)//ÓÃÓÚÎÄ¼ş¶ÁÈë×Ö·û´®
+char *s_gets(char *st, int n, FILE *fp) //ç”¨äºæ–‡ä»¶è¯»å…¥å­—ç¬¦ä¸²
 {
     char *ret_val;
     int i = 0;
@@ -29,22 +29,22 @@ struct node
     st data;
     struct node *next;
 };
-node *init()//Á´±í³õÊ¼»¯
+node *init() //é“¾è¡¨åˆå§‹åŒ–
 {
     node *head = (node *)malloc(sizeof(node));
     head->next = NULL;
     return head;
 }
 node *head = init();
-void createnode() //ĞÂÔöÑ§Éú
+void createnode() //æ–°å¢å­¦ç”Ÿ
 {
-    node *op = head; // opÖ¸ÕëÊÇ²Ù×÷µÄ½Úµã
-    cout << "ÇëÊäÈëĞèÒªÌí¼ÓÑ§ÉúµÄÈËÊı£º" << endl;
+    node *op = head; // opæŒ‡é’ˆæ˜¯æ“ä½œçš„èŠ‚ç‚¹
+    cout << "è¯·è¾“å…¥éœ€è¦æ·»åŠ å­¦ç”Ÿçš„äººæ•°ï¼š" << endl;
     ll n;
     cin >> n;
     while (n--)
     {
-        printf("ÇëÒÀ´ÎÊäÈëÑ§ÉúÑ§ºÅ¡¢ĞÕÃû¡¢ÄêÁä¡¢×¨Òµ¡¢°à¼¶ºÍÓ¢Óï³É¼¨£¨Ã¿Ò»ÏîÓÃ»»ĞĞÀ´·Ö¿ª£©£º\n");
+        printf("è¯·ä¾æ¬¡è¾“å…¥å­¦ç”Ÿå­¦å·ã€å§“åã€å¹´é¾„ã€ä¸“ä¸šã€ç­çº§å’Œè‹±è¯­æˆç»©ï¼ˆæ¯ä¸€é¡¹ç”¨æ¢è¡Œæ¥åˆ†å¼€ï¼‰ï¼š\n");
         node *newnode = (node *)malloc(sizeof(node));
         cin >> newnode->data.id >> newnode->data.name >> newnode->data.year >> newnode->data.major >> newnode->data.class_ >> newnode->data.eng;
         newnode->next = NULL;
@@ -55,22 +55,24 @@ void createnode() //ĞÂÔöÑ§Éú
         op->next = newnode;
     }
 }
-void printLink() //´òÓ¡Ñ§Éú
+void printLink() //æ‰“å°å­¦ç”Ÿ
 {
     node *op = head->next;
     ll no = 1;
     while (op != NULL)
     {
-        cout << "µÚ" << no << "Î»Í¬Ñ§ "
-             << "Ñ§ºÅ£º" << op->data.id << " ĞÕÃû£º" << op->data.name << " ÄêÁä" << op->data.year << " ×¨Òµ" << op->data.major << " °à¼¶" << op->data.class_ << " Ó¢Óï³É¼¨" << op->data.eng << endl;
+        cout << "ç¬¬" << no << "ä½åŒå­¦ "
+             << "å­¦å·ï¼š" << op->data.id << " å§“åï¼š" << op->data.name << " å¹´é¾„" << op->data.year << " ä¸“ä¸š" << op->data.major << " ç­çº§" << op->data.class_ << " è‹±è¯­æˆç»©" << op->data.eng << endl;
         op = op->next;
         no++;
     }
+    if(no==1)
+        cout<<"å½“å‰æ— å­¦ç”Ÿå­¦ç±æ•°æ®å‚¨å­˜!"<<endl;
 }
-void deleteNode()//É¾³ıÑ§Éú
+void deleteNode() //åˆ é™¤å­¦ç”Ÿ
 {
     node *op = head->next;
-    cout << "ÇëÊäÈëĞèÒªÉ¾³ıÑ§ÉúÑ§¼®µÄÑ§ºÅ£º";
+    cout << "è¯·è¾“å…¥éœ€è¦åˆ é™¤å­¦ç”Ÿå­¦ç±çš„å­¦å·ï¼š";
     char no[1000];
     cin >> no;
     ll ck = 0;
@@ -78,11 +80,11 @@ void deleteNode()//É¾³ıÑ§Éú
     {
         if (strcmp(op->data.id, no) == 0)
         {
-            cout << "ÇëºË¶ÔÒÔÏÂĞèÒªÉ¾³ıÑ§ÉúÑ§¼®µÄĞÅÏ¢£º" << endl
+            cout << "è¯·æ ¸å¯¹ä»¥ä¸‹éœ€è¦åˆ é™¤å­¦ç”Ÿå­¦ç±çš„ä¿¡æ¯ï¼š" << endl
                  << endl;
-            cout << "Ñ§ºÅ£º" << op->data.id << " ĞÕÃû£º" << op->data.name << " ÄêÁä" << op->data.year << " ×¨Òµ" << op->data.major << " °à¼¶" << op->data.class_ << " Ó¢Óï³É¼¨" << op->data.eng << endl
+            cout << "å­¦å·ï¼š" << op->data.id << " å§“åï¼š" << op->data.name << " å¹´é¾„" << op->data.year << " ä¸“ä¸š" << op->data.major << " ç­çº§" << op->data.class_ << " è‹±è¯­æˆç»©" << op->data.eng << endl
                  << endl;
-            cout << "ÊäÈë1È·ÈÏÉ¾³ı£¬ÊäÈë0È¡ÏûÉ¾³ı£º" << endl;
+            cout << "è¾“å…¥1ç¡®è®¤åˆ é™¤ï¼Œè¾“å…¥0å–æ¶ˆåˆ é™¤ï¼š" << endl;
             ll k;
             cin >> k;
             if (k == 1)
@@ -97,11 +99,12 @@ void deleteNode()//É¾³ıÑ§Éú
                 ck = 1;
                 op = op->next;
                 free(curr);
-                cout << "É¾³ı³É¹¦" << endl
+                cout << "åˆ é™¤æˆåŠŸ" << endl
                      << endl;
                 continue;
             }
             else if (k == 0)
+                cout<<"å·²å–æ¶ˆåˆ é™¤æ“ä½œ"<<endl;
                 return;
         }
         else
@@ -110,23 +113,23 @@ void deleteNode()//É¾³ıÑ§Éú
         }
     }
     if (!ck)
-        cout << "ÎŞ·¨²éÕÒµ½´ËÑ§Éú" << endl
+        cout << "æ— æ³•æŸ¥æ‰¾åˆ°æ­¤å­¦ç”Ÿ" << endl
              << endl;
 }
-void searchNode()//²éÕÒÑ§Éú
-{ 
+void searchNode() //æŸ¥æ‰¾å­¦ç”Ÿ
+{
     node *op = head->next;
     char no[1000];
     ll n = 1;
-    cout << "ÇëÊäÈëĞèÒª²éÕÒÑ§ÉúÑ§¼®µÄĞÕÃû£º";
+    cout << "è¯·è¾“å…¥éœ€è¦æŸ¥æ‰¾å­¦ç”Ÿå­¦ç±çš„å§“åï¼š";
     cin >> no;
     ll ck = 1;
     while (op != NULL)
     {
         if (strcmp(op->data.name, no) == 0)
         {
-            cout << "µÚ" << n << "Î»Í¬Ñ§ "
-                 << "Ñ§ºÅ£º" << op->data.id << " ĞÕÃû£º" << op->data.name << " ÄêÁä" << op->data.year << " ×¨Òµ" << op->data.major << " °à¼¶" << op->data.class_ << " Ó¢Óï³É¼¨" << op->data.eng << endl
+            cout << "ç¬¬" << n << "ä½åŒå­¦ "
+                 << "å­¦å·ï¼š" << op->data.id << " å§“åï¼š" << op->data.name << " å¹´é¾„" << op->data.year << " ä¸“ä¸š" << op->data.major << " ç­çº§" << op->data.class_ << " è‹±è¯­æˆç»©" << op->data.eng << endl
                  << endl;
             ck = 0;
             n++;
@@ -138,9 +141,9 @@ void searchNode()//²éÕÒÑ§Éú
         }
     }
     if (ck)
-        cout << "ÎŞ·¨ÕÒµ½¸ÃÑ§Éú£¡" << endl;
+        cout << "æ— æ³•æ‰¾åˆ°è¯¥å­¦ç”Ÿï¼" << endl;
 }
-void coutnode()//Í³¼ÆÑ§Éú
+void coutnode() //ç»Ÿè®¡å­¦ç”Ÿ
 {
     map<string, ll> mp1, mp2;
     node *op = head->next;
@@ -159,34 +162,34 @@ void coutnode()//Í³¼ÆÑ§Éú
         op = op->next;
     }
     for (auto t : mp1)
-        cout << "×¨ÒµÎª:" << t.first << "ÓĞ" << t.second << "ÃûÑ§Éú" << endl
+        cout << "ä¸“ä¸šä¸º:" << t.first << "æœ‰" << t.second << "åå­¦ç”Ÿ" << endl
              << endl;
     for (auto t : mp2)
-        cout << "ÄêÁäÎª:" << t.first << "ÓĞ" << t.second << "ÃûÑ§Éú" << endl
+        cout << "å¹´é¾„ä¸º:" << t.first << "æœ‰" << t.second << "åå­¦ç”Ÿ" << endl
              << endl;
 }
-void nodesort()//°´Ó¢Óï³É¼¨ÅÅĞò
+void nodesort() //æŒ‰è‹±è¯­æˆç»©æ’åº
 {
     node *p, *q;
     ll t;
-    p = head->next;   
+    p = head->next;
     while (p != NULL)
     {
-        q = p->next;    
-        while (q != NULL) 
+        q = p->next;
+        while (q != NULL)
         {
-            ll x=0, y=0;
+            ll x = 0, y = 0;
             for (int i = 0; p->data.eng[i] != '\0'; i++)
             {
                 if (p->data.eng[i] >= '0' && p->data.eng[i] <= '9')
                     x = x * 10 + p->data.eng[i] - '0';
             }
-             for (int i = 0; q->data.eng[i] != '\0'; i++)
+            for (int i = 0; q->data.eng[i] != '\0'; i++)
             {
                 if (q->data.eng[i] >= '0' && q->data.eng[i] <= '9')
                     y = y * 10 + q->data.eng[i] - '0';
             }
-            if (x<y)
+            if (x < y)
             {
                 swap(p->data.class_, q->data.class_);
                 swap(p->data.eng, q->data.eng);
@@ -195,19 +198,19 @@ void nodesort()//°´Ó¢Óï³É¼¨ÅÅĞò
                 swap(p->data.name, q->data.name);
                 swap(p->data.year, q->data.year);
             }
-            q = q->next; 
+            q = q->next;
         }
         p = p->next;
     }
     printLink();
 }
-void input()//´ÓÎÄ¼ş¶ÁÈë
+void input() //ä»æ–‡ä»¶è¯»å…¥
 {
-    FILE *fp; //ÎÄ¼şÖ¸Õë
+    FILE *fp; //æ–‡ä»¶æŒ‡é’ˆ
     fp = fopen("data.txt", "r");
     if (fp == NULL)
     {
-        printf("´ò¿ªÎÄ¼şÊ§°Ü£¡Çë³¢ÊÔ½«Ãûµ¥ÃüÃûÎª¡°data.txt¡°\n");
+        printf("æ‰“å¼€æ–‡ä»¶å¤±è´¥ï¼è¯·å°è¯•å°†åå•å‘½åä¸ºâ€œdata.txtâ€œ\n");
         system("pause");
         return;
     }
@@ -246,13 +249,13 @@ void input()//´ÓÎÄ¼ş¶ÁÈë
     }
     fclose(fp);
 }
-void output()//µ¼³öÎÄ¼ş
+void output() //å¯¼å‡ºæ–‡ä»¶
 {
-    FILE *fp; //ÎÄ¼şÖ¸Õë
+    FILE *fp; //æ–‡ä»¶æŒ‡é’ˆ
     fp = fopen("data.txt", "a+");
     if (fp == NULL)
     {
-        printf("´ò¿ªÎÄ¼şÊ§°Ü£¡Çë³¢ÊÔ½«Ãûµ¥ÃüÃûÎª¡°data.txt¡°\n");
+        printf("æ‰“å¼€æ–‡ä»¶å¤±è´¥ï¼è¯·å°è¯•å°†åå•å‘½åä¸ºâ€œdata.txtâ€œ\n");
         system("pause");
         return;
     }
@@ -282,58 +285,58 @@ void output()//µ¼³öÎÄ¼ş
 int main()
 {
     cout << "*********************************************************************************************************************" << endl;
-    cout << "                             »¶Ó­Ê¹ÓÃ±¾Èí¼ş" << endl;
+    cout << "                             æ¬¢è¿ä½¿ç”¨æœ¬è½¯ä»¶" << endl;
     while (1)
     {
-        cout << "ÇëÊäÈë¹¦ÄÜ£º1.ĞÂÔöÑ§ÉúĞÅÏ¢ 2.É¾³ıÑ§ÉúĞÅÏ¢ 3.µ¼ÈëÑ§ÉúĞÅÏ¢ 4.Ñ§ÉúĞÅÏ¢ËÑË÷(°´ĞÕÃû) 5.Ñ§ÉúĞÅÏ¢Í³¼Æ 6.°´Ó¢Óï³É¼¨ÅÅĞò 7.Ñ§ÉúĞÅÏ¢±£´æ 8.´òÓ¡µ±Ç°ËùÓĞÑ§ÉúµÄĞÅÏ¢ 9.ÍË³ö" << endl;
+        cout << "è¯·è¾“å…¥åŠŸèƒ½ï¼š1.æ–°å¢å­¦ç”Ÿä¿¡æ¯ 2.åˆ é™¤å­¦ç”Ÿä¿¡æ¯ 3.å¯¼å…¥å­¦ç”Ÿä¿¡æ¯ 4.å­¦ç”Ÿä¿¡æ¯æœç´¢(æŒ‰å§“å) 5.å­¦ç”Ÿä¿¡æ¯ç»Ÿè®¡ 6.æŒ‰è‹±è¯­æˆç»©æ’åº 7.å­¦ç”Ÿä¿¡æ¯ä¿å­˜ 8.æ‰“å°å½“å‰æ‰€æœ‰å­¦ç”Ÿçš„ä¿¡æ¯ 9.é€€å‡º" << endl;
         ll opr;
         cin >> opr;
         switch (opr)
         {
         case 1:
             createnode();
-            cout << "Ìí¼Ó²Ù×÷Íê³É" << endl;
+            cout << "æ·»åŠ æ“ä½œå®Œæˆ" << endl;
             cout << "*********************************************************************************************************************" << endl;
             break;
         case 2:
             deleteNode();
-            cout << "É¾³ı²Ù×÷Íê³É" << endl;
+            cout << "åˆ é™¤æ“ä½œå®Œæˆ" << endl;
             cout << "*********************************************************************************************************************" << endl;
             break;
         case 3:
             input();
-            cout << "µ¼Èë²Ù×÷Íê³É" << endl;
+            cout << "å¯¼å…¥æ“ä½œå®Œæˆ" << endl;
             cout << "*********************************************************************************************************************" << endl;
             break;
         case 4:
             searchNode();
-            cout << "²éÕÒ²Ù×÷Íê³É" << endl;
+            cout << "æŸ¥æ‰¾æ“ä½œå®Œæˆ" << endl;
             cout << "*********************************************************************************************************************" << endl;
             break;
         case 5:
             coutnode();
-            cout << "Í³¼Æ²Ù×÷Íê³É" << endl;
+            cout << "ç»Ÿè®¡æ“ä½œå®Œæˆ" << endl;
             cout << "*********************************************************************************************************************" << endl;
             break;
         case 6:
             nodesort();
-            cout << "ÅÅĞò²Ù×÷Íê³É" << endl;
+            cout << "æ’åºæ“ä½œå®Œæˆ" << endl;
             cout << "*********************************************************************************************************************" << endl;
             break;
         case 7:
             output();
-            cout << "µ¼³ö²Ù×÷Íê³É" << endl;
+            cout << "å¯¼å‡ºæ“ä½œå®Œæˆ" << endl;
             cout << "*********************************************************************************************************************" << endl;
             break;
         case 8:
             printLink();
-            cout << "´òÓ¡²Ù×÷Íê³É" << endl;
+            cout << "æ‰“å°æ“ä½œå®Œæˆ" << endl;
             cout << "*********************************************************************************************************************" << endl;
             break;
         case 9:
             return 0;
         default:
-            cout << "ÊäÈë¸ñÊ½´íÎó£¡" << endl;
+            cout << "è¾“å…¥æ ¼å¼é”™è¯¯ï¼" << endl;
             cout << "*********************************************************************************************************************" << endl;
         }
     }
